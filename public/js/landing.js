@@ -7,7 +7,6 @@ const cam = document.querySelector('#webcam');
 
 let micAllowed = 1;
 let camAllowed = 1;
-
 let mediaConstraints = { video: true, audio: true };
 
 navigator.mediaDevices.getUserMedia(mediaConstraints)
@@ -72,8 +71,7 @@ cam.addEventListener('click', () => {
         cam.classList = "nodevice";
         cam.innerHTML = `<i class="fas fa-video-slash"></i>`;
         camAllowed = 0;
-    }
-    else {
+    } else {
         mediaConstraints = { video: true, audio: micAllowed ? true : false };
         navigator.mediaDevices.getUserMedia(mediaConstraints)
             .then(localstream => {
